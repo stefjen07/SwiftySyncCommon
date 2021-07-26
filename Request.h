@@ -33,25 +33,9 @@ public:
 
 	void nothing() {}
 
-	void encode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONEncodeContainer* jsonContainer = dynamic_cast<JSONEncodeContainer*>(container);
-			jsonContainer->encode(collectionName, "collection");
-			jsonContainer->encode(documentName, "document");
-			jsonContainer->encode(body, "body");
-			jsonContainer->encode(id, "id");
-		}
-	}
+	void encode(CoderContainer* container);
 
-	void decode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONDecodeContainer* jsonContainer = dynamic_cast<JSONDecodeContainer*>(container);
-			collectionName = jsonContainer->decode(string(), "collection");
-			documentName = jsonContainer->decode(string(), "document");
-			body = jsonContainer->decode(string(), "body");
-			id = jsonContainer->decode(string(), "id");
-		}
-	}
+	void decode(CoderContainer* container);
 
 	DataRequest(string collectionName, string documentName, string body) {
 		this->collectionName = collectionName;
@@ -70,21 +54,9 @@ public:
 	string value;
 	vector<string> path;
 
-	void encode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONEncodeContainer* jsonContainer = dynamic_cast<JSONEncodeContainer*>(container);
-			jsonContainer->encode(value, "value");
-			jsonContainer->encode(path, "path");
-		}
-	}
+	void encode(CoderContainer* container);
 
-	void decode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONDecodeContainer* jsonContainer = dynamic_cast<JSONDecodeContainer*>(container);
-			value = jsonContainer->decode(string(), "value");
-			path = jsonContainer->decode(vector<string>(), "path");
-		}
-	}
+	void decode(CoderContainer* container);
 
 	FieldRequest(string value, vector<string> path) {
 		this->value = value;
@@ -99,23 +71,9 @@ public:
 	string name;
 	DataUnit inputData;
 
-	void encode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONEncodeContainer* jsonContainer = dynamic_cast<JSONEncodeContainer*>(container);
-			jsonContainer->encode(name, "name");
-			jsonContainer->encode(inputData, "input");
-			jsonContainer->encode(id, "id");
-		}
-	}
+	void encode(CoderContainer* container);
 
-	void decode(CoderContainer* container) {
-		if (container->type == CoderType::json) {
-			JSONDecodeContainer* jsonContainer = dynamic_cast<JSONDecodeContainer*>(container);
-			name = jsonContainer->decode(string(), "name");
-			inputData = jsonContainer->decode(DataUnit(), "input");
-			id = jsonContainer->decode(string(), "id");
-		}
-	}
+	void decode(CoderContainer* container);
 
 	FunctionRequest(string name, DataUnit input) {
 		this->name = name;

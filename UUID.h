@@ -3,17 +3,8 @@
 
 #define UUID_SIZE 36
 
-string create_uuid() {
-    const char* v = "0123456789abcdef";
-    const bool dash[] = { 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0 };
+#include <string>
 
-    string res;
-    for (int i = 0; i < 16; i++) {
-        if (dash[i]) res += "-";
-        res += v[rand() % 16];
-        res += v[rand() % 16];
-    }
-    return res;
-}
+std::string create_uuid();
 
 #endif
