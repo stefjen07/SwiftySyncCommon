@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
+if (NOT TARGET SwiftyData)
 project(SwiftyData)
 project(SwiftyRequest)
 project(SwiftyFunctions)
@@ -18,3 +19,4 @@ target_link_libraries(SwiftyRequest PUBLIC CodablePP/Codable.lib PUBLIC CodableP
 add_library(SwiftyFunctions Functions.h Functions.cpp)
 
 add_library(SwiftyUUID UUID.h UUID.cpp)
+endif()
