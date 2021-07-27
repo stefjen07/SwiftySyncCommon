@@ -1,22 +1,13 @@
 cmake_minimum_required(VERSION 3.19)
-if (NOT TARGET SwiftyData)
-project(SwiftyData)
-project(SwiftyRequest)
-project(SwiftyFunctions)
-project(SwiftyUUID)
+if (NOT TARGET SwiftySyncCommon)
+project(SwiftySyncCommon)
 
 set(CMAKE_CXX_STANDARD 14)
 
 add_subdirectory(CodablePP)
 include_directories(CodablePP)
 
-add_library(SwiftyData Data.h Data.cpp)
-target_link_libraries(SwiftyData PUBLIC CodablePP/Codable.lib PUBLIC CodablePP/JSON.lib)
+add_library(SwiftySyncCommon Data.h Data.cpp Request.h Request.cpp Functions.h Functions.cpp UUID.h UUID.cpp)
+target_link_libraries(SwiftySyncCommon Codable JSON)
 
-add_library(SwiftyRequest Request.h Request.cpp)
-target_link_libraries(SwiftyRequest PUBLIC CodablePP/Codable.lib PUBLIC CodablePP/JSON.lib)
-
-add_library(SwiftyFunctions Functions.h Functions.cpp)
-
-add_library(SwiftyUUID UUID.h UUID.cpp)
 endif()
