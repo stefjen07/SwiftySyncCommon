@@ -10,7 +10,6 @@ if (NOT TARGET SwiftySyncCommon)
     target_link_libraries(SwiftySyncCommon Codable)
     target_include_directories(SwiftySyncCommon PUBLIC CodablePP)
 
-    add_executable(test_common test.cpp)
-    target_link_libraries(test_common SwiftySyncCommon)
-
+    #add_executable(test_common test.cpp)
+    #target_link_libraries(test_common SwiftySyncCommon)
 endif()

@@ -4,19 +4,18 @@
 #include "Data.h"
 #include <string>
 #include <functional>
-using namespace std;
 
 class Function {
 private:
-	function<DataUnit(DataUnit)> handler;
+	std::function<DataUnit(DataUnit)> handler;
 public:
-	string name;
+	std::string name;
 
 	DataUnit operator[](DataUnit input) {
 		return handler(input);
 	}
 
-	Function(string name, function<DataUnit(DataUnit)> handler) {
+	Function(std::string name, std::function<DataUnit(DataUnit)> handler) {
 		this->name = name;
 		this->handler = handler;
 	}
