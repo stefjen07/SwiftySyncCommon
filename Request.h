@@ -19,7 +19,7 @@ enum class RequestType {
 
 class Request {
 public:
-	string id;
+	std::string id;
 	RequestType type;
 	ConnectionData* connection;
 	virtual void nothing() {};
@@ -27,9 +27,9 @@ public:
 
 class DataRequest : public Request, public Codable {
 public:
-	string collectionName;
-	string documentName;
-	string body;
+	std::string collectionName;
+	std::string documentName;
+	std::string body;
 
 	void nothing() {}
 
@@ -37,7 +37,7 @@ public:
 
 	void decode(CoderContainer* container);
 
-	DataRequest(string collectionName, string documentName, string body) {
+	DataRequest(std::string collectionName, std::string documentName, std::string body) {
 		this->collectionName = collectionName;
 		this->documentName = documentName;
 		this->body = body;
@@ -51,14 +51,14 @@ public:
 
 class FieldRequest : public Codable {
 public:
-	string value;
-	vector<string> path;
+	std::string value;
+	std::vector<std::string> path;
 
 	void encode(CoderContainer* container);
 
 	void decode(CoderContainer* container);
 
-	FieldRequest(string value, vector<string> path) {
+	FieldRequest(std::string value, std::vector<std::string> path) {
 		this->value = value;
 		this->path = path;
 	}
@@ -68,14 +68,14 @@ public:
 
 class FunctionRequest : public Request, public Codable {
 public:
-	string name;
+	std::string name;
 	DataUnit inputData;
 
 	void encode(CoderContainer* container);
 
 	void decode(CoderContainer* container);
 
-	FunctionRequest(string name, DataUnit input) {
+	FunctionRequest(std::string name, DataUnit input) {
 		this->name = name;
 		this->inputData = input;
 		this->id = create_uuid();
@@ -86,7 +86,7 @@ public:
 	}
 };
 
-const vector<RequestType> DATA_REQUEST_TYPES = { RequestType::documentSet, RequestType::documentGet, RequestType::fieldSet, RequestType::fieldGet };
+const std::vector<RequestType> DATA_REQUEST_TYPES = { RequestType::documentSet, RequestType::documentGet, RequestType::fieldSet, RequestType::fieldGet };
 #define DATA_REQUEST_TYPES_COUNT 4
 
 #endif

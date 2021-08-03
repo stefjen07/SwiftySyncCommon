@@ -1,4 +1,5 @@
 #include "Data.h"
+using namespace std;
 
 void DataUnit::encode(CoderContainer* container) {
     if (container->type == CoderType::json) {

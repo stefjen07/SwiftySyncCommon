@@ -1,4 +1,5 @@
 #include "Request.h"
+using namespace std;
 
 void DataRequest::encode(CoderContainer* container) {
     if (container->type == CoderType::json) {
