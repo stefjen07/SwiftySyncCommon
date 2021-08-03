@@ -6,7 +6,7 @@ if (NOT TARGET SwiftySyncCommon)
 
     add_subdirectory(CodablePP)
 
-    add_library(SwiftySyncCommon Data.h Data.cpp Request.h Request.cpp Functions.h Functions.cpp UUID.h UUID.cpp)
+    add_library(SwiftySyncCommon Data.hpp Data.cpp Request.hpp Request.cpp Functions.hpp UUID.hpp UUID.cpp)
     target_link_libraries(SwiftySyncCommon Codable)
     target_include_directories(SwiftySyncCommon PUBLIC CodablePP)
 

@@ -1,8 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include "Codable.h"
-#include "JSON.h"
+#include "Codable.hpp"
+#include "JSON.hpp"
 #include <vector>
 
 typedef char dataByte;

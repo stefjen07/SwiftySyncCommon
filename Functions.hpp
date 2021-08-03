@@ -1,7 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include "Data.h"
+#include "Data.hpp"
 #include <string>
 #include <functional>
 

@@ -1,10 +1,10 @@
 #ifndef REQUEST_H
 #define REQUEST_H
 
-#include "Codable.h"
-#include "JSON.h"
-#include "Data.h"
-#include "UUID.h"
+#include "Codable.hpp"
+#include "JSON.hpp"
+#include "Data.hpp"
+#include "UUID.hpp"
 
 class ConnectionData;
 
