@@ -1,9 +1,5 @@
-#include "Data.h"
-#include "Functions.h"
-#include "UUID.h"
-#include "Request.h"
-#include "JSON.h"
-#include "Codable.h"
+#include "Functions.hpp"
+#include "Request.hpp"
 #include <iostream>
 
 using namespace std;
