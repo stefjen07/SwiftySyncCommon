@@ -4,7 +4,12 @@ if (NOT TARGET SwiftySyncCommon)
 
     set(CMAKE_CXX_STANDARD 14)
 
-    include_directories(CodablePP)
+    add_subdirectory(CodablePP)
 
-    add_executable(test_common test.cpp)
+    add_library(SwiftySyncCommon Data.hpp Data.cpp Request.hpp Request.cpp Functions.hpp UUID.hpp UUID.cpp)
+    target_link_libraries(SwiftySyncCommon Codable)
+    target_include_directories(SwiftySyncCommon PUBLIC CodablePP)
+
+    #add_executable(test_common test.cpp)
+    #target_link_libraries(test_common SwiftySyncCommon)
 endif()
