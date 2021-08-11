@@ -8,8 +8,8 @@ if (NOT TARGET SwiftySyncCommon)
 
     add_library(SwiftySyncCommon Data.hpp Data.cpp Request.hpp Request.cpp Functions.hpp UUID.hpp UUID.cpp)
     target_link_libraries(SwiftySyncCommon Codable)
-    target_include_directories(SwiftySyncCommon PUBLIC CodablePP)
+    target_include_directories(SwiftySyncCommon PUBLIC CodablePP/include)
 
-    #add_executable(test_common test.cpp)
-    #target_link_libraries(test_common SwiftySyncCommon)
+    add_executable(test_common test.cpp)
+    target_link_libraries(test_common SwiftySyncCommon)
 endif()
