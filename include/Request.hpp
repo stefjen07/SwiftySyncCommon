@@ -6,6 +6,9 @@
 #include "Data.hpp"
 #include "UUID.hpp"
 
+#define MESSAGE_PREFIX "MES"
+#define MESSAGE_ID 00000000-0000-0000-0000-000000000000
+
 class ConnectionData;
 
 enum class RequestType {
